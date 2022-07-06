@@ -6,12 +6,11 @@
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
-
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php" style="text-decoration:none ;">
         <div class="sidebar-brand-icon ">
             <img src="./logo2.jpg" alt="" style="width:40px;height:40px">
         </div>
-        <div class="sidebar-brand-text mx-3" style="color:green;font-weight:900;font-family:cursive;text-decoration:none;font-size:12px">SECOND HAND</div>
+        <div class="sidebar-brand-text mx-3" style="color:DarkOrange;font-weight:900;font-family:cursive;text-decoration:none;font-size:12px">SHOPI</div>
     </a>
 
     <!-- Topbar Navbar -->
@@ -23,7 +22,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small" name="name" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-primary" type="submit" style="background-color:DarkOrange ;">
                             <i class="fas fa-search fa-sm"></i>
                         </button>
                     </div>
@@ -58,7 +57,7 @@
 
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="cart.php" id="alertsDropdown" role="button">
+            <a style="color:DarkOrange ;" class="nav-link dropdown-toggle" href="cart.php" id="alertsDropdown" role="button">
                 <i class="fas fa-cart-plus fa-2x fa-fw text-success"></i>
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter" id="returned_value">
@@ -70,11 +69,9 @@
                         echo $num;
                     }
                     ?>
-                    +</span>
+                    </span>
             </a>
         </li>
-
-
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
         <li class="nav-item dropdown no-arrow d-sm-none">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -108,9 +105,8 @@
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
 
-
                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $row['Customer Name'] ?></span>
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $row['Customer Username'] ?></span>
                         <img class="img-profile rounded-circle" src="IMAGES/users/avatar.png">
                     </a>
                     <!-- Dropdown - User Information -->
@@ -139,6 +135,6 @@
         </li>
 
     </ul>
-
 </nav>
+
 <!-- End of Topbar -->

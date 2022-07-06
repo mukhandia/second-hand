@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "second_hand";
+$dbname = "shopi";
 
 if ($conn = new mysqli($servername, $username, $password, $dbname)) {
 } else {

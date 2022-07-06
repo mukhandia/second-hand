@@ -1,12 +1,12 @@
  <!-- Sidebar -->
- <ul class="navbar-nav  sidebar sidebar-dark accordion py-auto" id="side-nav" style="background-color:green ; border:2px solid orange;height:min-content">
+ <ul class="navbar-nav  sidebar sidebar-dark accordion py-auto" id="side-nav" style="background-color:DarkOrange ; border:2px solid orange;height:min-content">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
          <div class="sidebar-brand-icon ">
              <img src="./logo2.jpg" alt="" style="width:40px;height:40px">
          </div>
-         <div class="sidebar-brand-text mx-3" style="color:wheat"><i>SECOND HAND</i> </div>
+         <div class="sidebar-brand-text mx-3" style="color:wheat"><i>shopi</i> </div>
      </a>
 
      <!-- Divider -->
@@ -16,7 +16,7 @@
      <li class="nav-item">
          <a class="nav-link" href="index.php">
              <i class="fas fa-fw fa-tachometer-alt"></i>
-             <span>Homepage</span></a>
+             <span>Home</span></a>
      </li>
 
      <!-- Divider -->
@@ -30,14 +30,14 @@
      </li>
 
      <!-- Divider -->
-     <hr class="sidebar-divider d-none d-md-block">
+     <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
      <!-- Nav Item - Tables -->
-     <li class="nav-item">
+     <!-- <li class="nav-item">
          <a class="nav-link" href="checkout.php">
              <i class="fas fa-fw fa-table"></i>
              <span>Transaction</span></a>
-     </li>
+     </li> -->
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 
@@ -54,7 +54,7 @@
      <li class="nav-item">
          <a class="nav-link" href="profile.php">
              <i class="fas fa-fw fa-user"></i>
-             <span>My Profile</span></a>
+             <span>Account</span></a>
      </li>
 
 
@@ -62,9 +62,9 @@
      <hr class="sidebar-divider d-none d-md-block">
 
      <!-- Sidebar Toggler (Sidebar) -->
-     <div class="text-center d-none d-md-inline">
+     <!-- <div class="text-center d-none d-md-inline">
          <button class="rounded-circle border-0" id="sidebarToggle"></button>
-     </div>
+     </div> -->
 
  </ul>
  <!-- End of Sidebar -->

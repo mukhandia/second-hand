@@ -52,6 +52,7 @@ include('components/cartControl.php');
                             $amount = $_POST['Amount'];
                             $payment_status = 'Paid, Not Verified';
                             $paid_by = $_POST['paid_by'];
+
                             $payment_date = $_POST['payment_date'];
 
                             $sql = "SELECT * FROM `tblpayment` WHERE `cart_id` = '$cart_id'";
@@ -61,12 +62,10 @@ include('components/cartControl.php');
                                 if ($result['payment_voucher'] == $payment_voucher ||  $payment_voucher == 'ABC12') {
                                     $sql = "UPDATE `tblpayment` SET `amount`='$amount',`payment_status`='$payment_status',`paid_by`='$paid_by',`payment_date`='$payment_date' WHERE `cart_id` = '$cart_id'";
                                     if ($result = mysqli_query($conn, $sql)) {
-
                                         $sql = "SELECT * FROM `tblorder` WHERE `cart_id` = '$cart_id'";
                                         if ($stmt = mysqli_query($conn, $sql)) {
                                             while ($row = mysqli_fetch_assoc($stmt)) {
                                                 $order_id = $row['order_id'];
-
                                                 $customer_id = $row['customer_id'];
                                                 $product_id = $row['product_id'];
                                                 $product_name = $row['product_name'];
@@ -82,7 +81,8 @@ include('components/cartControl.php');
 
                                                 $time = date("h:i:sa");
 
-                                                $sql = "INSERT INTO  `orderstable` (`customer_id`, `product_id`, `product_name`,`product_price`, `Quantity`, `cart_id`, `Amount`,`payment_date`,`Payment_Time`,`order_status`, `processed_by`) VALUES('$customer_id','$product_id','$product_name','$product_price','$Quantity','$cart_id','$Amount','$date','$time','$order_status','$processed_by')";
+                                                $sql = "INSERT INTO  `orderstable` (`customer_id`, `product_id`, `product_name`,`product_price`, `Quantity`, `cart_id`, `Amount`,`payment_date`,`Payment_Time`,`order_status`, `processed_by`)
+                                                 VALUES('$customer_id','$product_id','$product_name','$product_price','$Quantity','$cart_id','$Amount','$date','$time','$order_status','$processed_by')";
                                                 if ($result = mysqli_query($conn, $sql)) {
 
                                                     $paid_by = $_SESSION['Id'];

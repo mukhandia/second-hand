@@ -12,7 +12,7 @@ include("server/connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DASHBOARD</title>
+    <title>shopi admin dashboard</title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -32,16 +32,15 @@ include("server/connect.php");
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <!-- <form action="report.php" method="POST">
+                        <form action="report.php" method="POST">
                             <input type="text" name="Amount_Today" id="" value="<?php echo $_SESSION['Amount_Today'] ?>" hidden>
                             <input type="text" name="Sales_Today" id="" value="<?php echo $_SESSION['Sales_Today'] ?>" hidden>
                             <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</button>
-                        </form> -->
+                        </form>
 
-                    </div>
-
+                    </div> -->
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Earnings (Monthly) Card Example -->
@@ -156,17 +155,86 @@ include("server/connect.php");
                                         <div class="col mr-2">
                                             <a href="transactions.php" style="text-decoration: none ;">
                                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    Transactions (Today)</div>
+                                                    Total Transactions </div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                     <?php
                                                     $date = date("l d/ m/Y");
                                                     //query to get data from the table
-                                                    $sql = sprintf("SELECT * FROM tblpayment");
-
+                                                    $sql = sprintf("SELECT * FROM tblpayment ");
                                                     //execute query
                                                     $result = mysqli_query($conn, $sql);
                                                     if ($num = mysqli_num_rows($result)) {
                                                         echo $num;
+                                                    } else {
+                                                        echo "0";
+                                                    }
+
+                                                    ?>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-briefcase fa-2x text-gray-300" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Sales (Today)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <?php
+                                                $date = date("l d/ m/Y");
+                                                //query to get data from the table
+                                                $sql = sprintf("SELECT sales  FROM Sales WHERE day = '$date'");
+
+                                                //execute query
+                                                $result = mysqli_query($conn, $sql);
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        $_SESSION['Sales_Today'] = $row['sales'];
+                                                        echo $_SESSION['Sales_Today'];
+                                                    }
+                                                } else {
+                                                    echo "0";
+                                                }
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <!-- <i class="fas fa-asterisk fa-2x text-gray-300"></i> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <a href="unverified.php" style="text-decoration: none ;">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    Unverified Transactions </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php
+                                                    $date = date("l d/ m/Y");
+                                                    //query to get data from the table
+                                                    $sql = "SELECT payment_status FROM tblpayment WHERE payment_status='Paid, Not Verified' ";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($verify = mysqli_num_rows($result)) {
+                                                        echo $verify;
                                                     } else {
                                                         echo "0";
                                                     }
@@ -177,6 +245,36 @@ include("server/connect.php");
                                         <div class="col-auto">
                                             <i class="fa fa-briefcase fa-2x text-gray-300" aria-hidden="true"></i>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <a href="transactions.php" style="text-decoration: none ;">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    verified Transactions </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php
+                                                    $date = date("l d/ m/Y");
+                                                    //query to get data from the table
+                                                    $sql = "SELECT payment_status FROM tblpayment WHERE payment_status='Verified' ";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($verify = mysqli_num_rows($result)) {
+                                                        echo $verify;
+                                                    } else {
+                                                        echo "0";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- <div class="col-auto">
+                                            <i class="fa fa-briefcase fa-2x text-gray-300" aria-hidden="true"></i>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

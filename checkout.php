@@ -2,7 +2,6 @@
 include('components/session_user.php');
 include('server/connect.php');
 include('components/cartControl.php');
-
 $Message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Id = $_POST['Id'];
@@ -27,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -242,7 +240,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     </div>
                                 </div>
 
-
                             </div>
                             <div class="col-lg-5" style="box-shadow:1px 1px 7px">
                                 <div class="card text-dark bg-light mt-2 mb-2">
@@ -391,8 +388,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
-    <!-- End of Page Wrapper -->
-    <!-- Bootstrap core JavaScript-->
     <script>
         $(document).ready(function() {
             $.ajax({

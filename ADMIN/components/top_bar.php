@@ -7,19 +7,14 @@
         <i class="fa fa-bars"></i>
     </button>
 
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="text-decoration:none ;">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php" style="text-decoration:none ;">
         <div class="sidebar-brand-icon ">
             <img src="./logo2.jpg" alt="" style="width:40px;height:40px">
         </div>
-        <div class="sidebar-brand-text mx-3" style="color:green;font-weight:900;font-family:cursive;text-decoration:none;font-size:12px">SECOND HAND COMMODITY ENTERPRISE</div>
+        <div class="sidebar-brand-text mx-3" style="color:green;font-weight:900;font-family:cursive;text-decoration:none;font-size:12px">shopi admin</div>
     </a>
-
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-
-
-
-
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->

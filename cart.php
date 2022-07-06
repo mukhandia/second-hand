@@ -158,7 +158,7 @@ include('components/cartControl.php');
                                                                     ?>
                                                                     <input type="text" name="order_id" value="<?php echo  $product_id ?>" class="form-control" placeholder="" aria-describedby="helpId" hidden>
                                                                     <input type="text" name="user_Id" class="form-control" value="<?php echo $UserId ?>" placeholder="" aria-describedby="helpId" hidden>
-                                                                    <button type="submit" class="shadow btn btn-danger px-1">DELETE </button>
+                                                                    <button type="submit" class="shadow btn btn-danger px-1">Remove </button>
                                                                 </form>
                                                             </td>
                                                         <?php
@@ -222,8 +222,7 @@ include('components/cartControl.php');
                                             </h6>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                                            <h6 style="font-size: 14px;float:right">
-                                                NONE
+                                            <h6 style="font-size: 14px;float:right">                                           
                                             </h6>
                                         </div>
                                     </div>
@@ -244,7 +243,7 @@ include('components/cartControl.php');
                                                 $total = mysqli_query($conn, $sql);
                                                 foreach ($total as $total) {
                                                     $Total = (float)$total['Amount'];
-                                                    echo 'Ksh ' . $Total . '.00';
+                                                    echo 'Ksh ' . $Total. '.00';
                                                     $sql = "SELECT * FROM `cart` WHERE `customer_id` = '$UserId'";
                                                     $res = mysqli_query($conn, $sql);
                                                     if (mysqli_num_rows($res) > 0) {
@@ -277,9 +276,12 @@ include('components/cartControl.php');
                                                                         $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                                                                         return substr(str_shuffle($str_result), 0, $length_of_string);
                                                                     }
-                                                                    $voucher_number = random_strings(7);
-
-                                                                    $sql = "INSERT INTO `tblpayment`(`payment_voucher`, `cart_id`) VALUES ('$voucher_number','$cart_id')";
+                                                                   
+                                                                   $addednum="SHOPI";
+                                                                   $voucher_num = random_strings(4);
+                                                                    $voucher_number = $addednum .$voucher_num ;
+                                                                    $sql = "INSERT INTO `tblpayment`(`payment_voucher`, `cart_id`) 
+                                                                    VALUES ('$voucher_number','$cart_id')";
                                                                     if ($result_voucher = mysqli_query($conn, $sql)) {
                                                                         $date = date("l d/ m/Y");
                                                                         $sql = "SELECT * FROM `site_traffic` WHERE `Date` = '$date'";
@@ -306,7 +308,7 @@ include('components/cartControl.php');
                                                         } else {
                                                             echo '<div class="alert alert-danger" role="alert">
                                                             <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Sorry, Failed To add the cart Details' . mysqli_error($conn) . '</strong>
-                                                            </div>';
+                                                            </div>'.mysqli_error($conn);
                                                         }
                                                     }
                                                 }
@@ -317,7 +319,7 @@ include('components/cartControl.php');
                                     <?php
                                     $UserId = $_SESSION['Id'];
                                     ?>
-                                    <a href="checkout.php?user_id = <?php echo $UserId ?>&amount =<?php echo $Total ?>" style="text-decoration:none"><button type="button" class="shadow btn btn-success d-block mt-2" style="border-radius: 0px; width:98%; border-radius:12px;">CHECKOUT</button></a>
+                                    <a href="checkout.php" style="text-decoration:none"><button type="button" class="shadow btn btn-success d-block mt-2" style="border-radius: 0px; width:98%; border-radius:12px;">CHECKOUT</button></a>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,6 @@
 <?php
 include('components/session_user.php');
 include('server/connect.php');
-
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['P_name'];

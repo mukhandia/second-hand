@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>TRANSACTIONS PAGE</title>
+    <title>unverified transactions</title>
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </script>
                     <div class="row">
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-2 text-gray-800">Transaction Table</h1>
+                        <h1 class="h3 mb-2 text-gray-800"> Unverified Transaction Table</h1>
                         <p class="mb-4">This tables contains all the information that are there in the database regarding the transactions that took place on our system. It is detailed and easy to follow through. It helps the admin access the Transactions to ascertain the effectiveness of each and every data stored about them</p>
 
                         <!-- DataTales Example -->
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="card-body">
                                 <?php
-                                $sql = "SELECT * FROM `tblpayment` ORDER BY `payment_id` DESC";
+                                $sql = "SELECT * FROM `tblpayment` WHERE payment_status='Paid, Not Verified' ORDER BY `payment_id` DESC";
                                 $result = mysqli_query($conn, $sql); ?>
                                 <table class="table table-hovered table-inverse table-responsive">
                                     <thead class="thead-inverse" style="background-color: green; border-bottom:4px solid orange;color:white;">
@@ -181,7 +181,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span> <?php
+                        $cop=date("l:Y");
+                        echo $cop ." ";
+                         ?>Copyright &copy; shopi</span>
                     </div>
                 </div>
             </footer>

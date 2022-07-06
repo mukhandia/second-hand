@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $message = '<div class="alert alert-success" role="alert">
             <strong><i class="fa fa-check-circle" style="color:green" aria-hidden="true"></i> Successfully Removed the product</strong>
             </div>';
-                header("Location:cart.php?Remove=Successfully Removed From Cart");
+                header("Location:cart.php");
             } else {
                 $message = '<div class="alert alert-danger" role="alert">
                 <strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Sorry, You cannot make the request at this time' . mysqli_error($conn) . '</strong>

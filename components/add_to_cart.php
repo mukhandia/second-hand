@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($result = mysqli_query($conn, $sql)) {
                 $num = mysqli_num_rows($result);
                 $Message = "Product Already Added!!";
+
             }
         } else {
             $sql = "INSERT INTO `tblorder` (`customer_id`,`product_id`,`product_name`,`Quantity`,`order_status`,`product_price`,`Amount`) VALUES('$user_Id','$product_Id','$product_name',1,'Received', '$product_price', '$product_price')";

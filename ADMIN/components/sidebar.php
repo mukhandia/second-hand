@@ -2,11 +2,11 @@
  <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background:green ; border:2px solid orange;height:auto">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
          <div class="sidebar-brand-icon ">
              <img src="./logo2.jpg" alt="" style="width:40px;height:40px">
          </div>
-         <div class="sidebar-brand-text mx-3">SECOND HAND</div>
+         <div class="sidebar-brand-text mx-3">shopi</div>
      </a>
 
      <!-- Divider -->

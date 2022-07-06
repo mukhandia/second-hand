@@ -4,7 +4,6 @@ include('server/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +13,7 @@ include('server/connect.php');
     <?php include("components/links.php") ?>
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/media.css">
-    <title>second hand shop</title>
-    <!-- Custom fonts for this template-->
-
-
-    <!-- Custom styles for this template-->
+    <title>shopi</title>
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <style>
@@ -50,18 +45,8 @@ include('server/connect.php');
                         })
                     </script>
                     <div class="row">
-                        <!-- <div class="col my-3">
-                            <button type="button" class="btn btn-primary" id="hello">Hello</button>
-                        </div>
-                        <script>
-                            $(document).ready(function() {
-                                $("#hello").click(function() {
-                                    alert("Hello");
-                                })
-                            })
-                        </script> -->
-                        <div class="col-lg-11 px-auto py-3 mx-auto" style="background-color:whitesmoke ;">
-                            <div id="carouselId" class="carousel slide mx-auto" data-ride="carousel" style="width: 100%;">
+                        <div class="col-lg-12 sm-12 px-auto py-2 mx-auto" style="background-color:green ;">
+                           <!--  <div id="carouselId" class="carousel slide mx-auto" data-ride="carousel" style="width: 100%;">
                                 <ol class="carousel-indicators">
                                     <li data-target="#carouselId" data-slide-to="0" class="active"></li>
                                     <li data-target="#carouselId" data-slide-to="1"></li>
@@ -89,36 +74,32 @@ include('server/connect.php');
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
-                            </div>
-                            <h5 class="my-2 py-1 p-2" style="background-color:orange;color:white;font-weight:700 ;">COMMODITIES FOR SALE</h5>
+                            </div> -->
+                            <h5 class="my-2 py-1 p-2" style="background-color:orange;color:white;font-weight:700 ;">AVAILABLE PRODUCTS</h5>
                             <?php
-                            $sql = "SELECT * FROM products";
+                            $sql = "SELECT * FROM products LIMIT 12";
                             $result = mysqli_query($conn, $sql); ?>
                             <div class="row d-flex justify-content-start mt-2">
                                 <?php
                                 while ($row = mysqli_fetch_assoc($result)) { ?>
-                                    <div class="col-lg-3 col-md-6 col-sm-8 col-6 mb-2">
+                                    <div class="col-lg-3 col-md-6 col-sm-8 col-6 mb-2  mr-0">
                                         <div class="card">
-                                            <center> <a href="single.php?name=<?php echo $row['Name'] ?>"><img class="card-img-top mt-2" src="IMAGES/furniture/<?php echo $row['File'] ?>" alt="" style="width:90%;height:200px"></a></center>
+                                            <center> <a href="single.php?name=<?php echo $row['Name'] ?>"><img class="card-img-top mt-2" src="IMAGES/furniture/<?php echo $row['File'] ?>" alt="" style="width:70%;height:100px"></a></center>
                                             <div class="card-body">
-                                                <a href="single.php?name=<?php echo $row['Name'] ?>" style="text-decoration:none ;font-size:6px;">
-                                                    <h4 class="card-title" style="height:7vh;"><?php echo $row['Name'] ?></h4>
+                                                <a href="single.php?name=<?php echo $row['Name'] ?>" style="text-decoration:none ;">
+                                                    <h4 class="card-title" style="color:black;font-size: 14px;"><?php echo $row['Name'] ?></h4>
                                                 </a>
                                                 <div class="row">
-                                                    <div class="col-lg-11" style="height:12vh;">
-                                                        <p class="card-text"><span style="color:green;font-weight:900;font-family:cursive">Price:</span>Ksh <?php echo $row['Price'] ?></p>
-
-                                                        <p class="card-text"><span style="color:green;font-weight:600;font-family:cursive">Description:</span><?php echo $row['Description'] ?></p>
-
+                                                    <div class="col-lg-11 sm-12">
+                                                        <p class="card-text" style="color:black;" ><span style="color:black;font-weight:900;font-family:cursive;font: size px;">Ksh:</span>Ksh <?php echo $row['Price'] ?></p>
                                                     </div>
                                                 </div>
-                                                <hr>
                                                 <form action="components/add_to_cart.php" method="post">
                                                     <input type="text" name="product_id" id="product_id<?php echo $row['Id'] ?>" value="<?php echo $row['Id'] ?>" hidden>
                                                     <input type="text" name="product_name" id="product_name<?php echo $row['Id'] ?>" value="<?php echo $row['Name'] ?>" hidden>
                                                     <input type="text" name="user_id" id="user_id<?php echo $row['Id'] ?>" value="<?php echo $_SESSION['Id'] ?>" hidden>
                                                     <input type="text" name="product_price" id="product_price<?php echo $row['Id'] ?>" value="<?php echo $row['Price'] ?>" hidden>
-                                                    <button type="button" class="btn btn-success d-block mx-auto" id="test<?php echo $row['Id'] ?>" style="font-size: 14px;">Add to Cart</button>
+                                                    <button type="button" class="btn btn d-block mx-auto" id="test<?php echo $row['Id'] ?>" style="font-size:14px;background-color:DarkOrange;color:black">Add to Cart</button>
                                                     <script>
                                                         $(document).ready(function() {
                                                             $("#test<?php echo $row['Id'] ?>").click(function() {
@@ -168,10 +149,14 @@ include('server/connect.php');
             </div>
             <!-- End of Main Content -->
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <footer class="sticky-footer bg-white" >
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Second hand commodity website</span>
+                    <div class="copyright text-center my-auto" >
+                        <span> 
+                        </span><?php
+                        $date=date("Y:m");
+                        echo $date ." ";
+                         ?> Copyright &copy; shopi</span>
                     </div>
                 </div>
             </footer>
@@ -185,22 +170,15 @@ include('server/connect.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
-
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
 </body>
-
 </html>

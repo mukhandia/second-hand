@@ -139,10 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             </center>
                                                             <div class="card-body">
                                                                 <a href="single.php?name=<?php echo $product['Name'] ?>" style="text-decoration: none;">
-                                                                    <h6 class="card-title" style="text-align:center"><?php echo $product['Name'] ?></h6>
+                                                                    <h6 class="card-title" style="text-align:center;font-size:10px"><?php echo $product['Name'] ?></h6>
                                                                 </a>
                                                                 <div class="row">
-                                                                    <div class="col-lg-7 pt-2">
+                                                                    <div class="col-lg-7 pt-2" style="font-size:10px ;">
                                                                         PRICE: Ksh
                                                                         <?php echo $product['Price'];
                                                                         ?>
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                     <input type="text" name="Name" id="" value="<?php echo $product['Name'] ?>" hidden>
                                                                     <input type="text" name="user_id" id="" value="<?php echo $_SESSION['Id'] ?>" hidden>
                                                                     <input type="text" name="Price" id="" value="<?php echo $product['Price'] ?>" hidden>
-                                                                    <button type="submit" style="size:small" class="shadow btn btn-success"> Purchase Product</button>
+                                                                   <center> <button type="submit" style="font-size:12px;background-color:DarkOrange;color:black" class="shadow btn btn">Order</button>
                                                                 </form>
 
                                                             </div>

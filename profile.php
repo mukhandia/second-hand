@@ -96,9 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div class="col-md-6 mb-3">
                                                 <label for="validationServerUsername">Customer Username</label>
                                                 <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                                                    </div>
+                                                  
                                                     <input type="text" class="form-control" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" id="validationServerUsername" value="<?php echo $menu['Customer Username'] ?>" name="customer_username" required>
                                                     <div class="valid-feedback" id="valid-feeback">
                                                         Looks Good!

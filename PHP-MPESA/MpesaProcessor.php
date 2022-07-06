@@ -28,8 +28,8 @@ function lipaNaMpesaPassword()
 
 function newAccessToken()
 {
-    $consumer_key = "I5MWz7sCdWcw9vP1g74mLBPa9uGNs9fO";
-    $consumer_secret = "Gyv0fZykEeyrFpJc";
+    $consumer_key = "TXTfdd0OszO2BWY9JBol3RL1rIyvGQN6";
+    $consumer_secret = "RukcGyDzrb5lEMNG";
     $credentials = base64_encode($consumer_key . ":" . $consumer_secret);
     $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
     
@@ -70,7 +70,7 @@ function stkPush($amount, $phoneNumber)
         'PartyB' => 174379,
         'PhoneNumber' => $phoneNumber,
         'CallBackURL' => 'https://9bf3-41-89-246-254.eu.ngrok.io/MEAL%20BOOKING%20SYSTEM/login.php',
-        'AccountReference' => "SECOND HAND ENTERPRISE utawala",
+        'AccountReference' => " ONLINE SHOP",
         'TransactionDesc' => "lipa Na M-PESA"
     ];
 
