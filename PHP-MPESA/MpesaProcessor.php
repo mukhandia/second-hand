@@ -24,17 +24,12 @@ function lipaNaMpesaPassword()
 
     return $mpesaPassword;
 }
-
-
 function newAccessToken()
 {
     $consumer_key = "TXTfdd0OszO2BWY9JBol3RL1rIyvGQN6";
     $consumer_secret = "RukcGyDzrb5lEMNG";
     $credentials = base64_encode($consumer_key . ":" . $consumer_secret);
     $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-    
-
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Basic " . $credentials, "Content-Type:application/json"));
@@ -47,8 +42,6 @@ function newAccessToken()
 
     return $access_token->access_token;
 }
-
-
 
 function stkPush($amount, $phoneNumber)
 {
@@ -73,10 +66,7 @@ function stkPush($amount, $phoneNumber)
         'AccountReference' => " ONLINE SHOP",
         'TransactionDesc' => "lipa Na M-PESA"
     ];
-
-
     $data_string = json_encode($curl_post_data);
-
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
@@ -86,4 +76,4 @@ function stkPush($amount, $phoneNumber)
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
     $curl_response = curl_exec($curl);
     print_r($curl_response);
-} header("Location:../checkout.php");
+}//  header("Location:../checkout.php");

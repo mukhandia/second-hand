@@ -14,6 +14,7 @@ include('server/connect.php');
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/media.css">
     <title>shopi</title>
+    <link rel="icon" href="IMAGES/comp/favicon.ico" type="image/x-icon" />
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <style>
@@ -22,8 +23,11 @@ include('server/connect.php');
         transition: 100ms;
     }
 </style>
-
 <body id="page-top">
+    <!-- <div class="row mt-4" style="height:100px;background-color:darkorange">
+ <marquee behavior="" direction=""><h2 style="color:red ;margin:auto">LATESTEST ARRIVALS</h2></marquee>
+ <marquee behavior="rotate" direction=""><h2 style="color:red ;margin:auto;float:left">LATESTEST ARRIVALS</h2></marquee> -->
+    </div>
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Content Wrapper -->
@@ -147,8 +151,6 @@ include('server/connect.php');
                 </div>
                 <!-- /.container-fluid -->
             </div>
-            <!-- End of Main Content -->
-            <!-- Footer -->
             <footer class="sticky-footer bg-white" >
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto" >
@@ -164,8 +166,6 @@ include('server/connect.php');
         </div>
         <!-- End of Content Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
-    <!-- Bootstrap core JavaScript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>

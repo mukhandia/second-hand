@@ -39,7 +39,13 @@
              <i class="fas fa-fw fa-plus"></i>
              <span>Add Product</span></a>
      </li>
+     <hr class="sidebar-divider d-none d-md-block">
 
+<li class="nav-item">
+    <a class="nav-link" href="addcategory.php">
+        <i class="fas fa-fw fa-plus"></i>
+        <span>Add Product Category</span></a>
+</li>
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 
@@ -49,7 +55,14 @@
              <i class="fas fa-fw fa-table"></i>
              <span>Manage Products</span></a>
      </li>
+     <hr class="sidebar-divider d-none d-md-block">
 
+<!-- Nav Item - Tables -->
+<li class="nav-item">
+    <a class="nav-link" href="categories.php">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Manage Categories</span></a>
+</li>
      <!-- Divider -->
      <hr class="sidebar-divider d-none d-md-block">
 

@@ -46,6 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include('components/links.php') ?>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>LOGIN PAGE</title>
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
+
 </head>
 
 <body style="background-color:whitesmoke;">

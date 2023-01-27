@@ -13,6 +13,7 @@ include('components/cartControl.php');
     <meta name="description" content="">
     <meta name="author" content="">
     <title>CART</title>
+    <link rel="icon" href="IMAGES/comp/favicon.ico" type="image/x-icon" />
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <?php include("components/links.php") ?>
@@ -278,7 +279,7 @@ include('components/cartControl.php');
                                                                     }
                                                                    
                                                                    $addednum="SHOPI";
-                                                                   $voucher_num = random_strings(4);
+                                                                   $voucher_num = random_strings(5);
                                                                     $voucher_number = $addednum .$voucher_num ;
                                                                     $sql = "INSERT INTO `tblpayment`(`payment_voucher`, `cart_id`) 
                                                                     VALUES ('$voucher_number','$cart_id')";

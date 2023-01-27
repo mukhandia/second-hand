@@ -1,5 +1,5 @@
 <?php
-include('components/session.php');
+// include('components/session.php');
 include("server/connect.php");
 
 $message = '';
@@ -50,7 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>ADD PRODUCT PAGE</title>
+    <title>add product</title>
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -88,13 +90,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                     </div>
                                     <div class="col form-group" <div class="form-group">
+                                    <?php
+                                $sql = "SELECT * FROM product_categories ORDER BY `product_categories`.`categoryId` DESC";
+                                $result = mysqli_query($conn, $sql); ?>
                                         <label for="">Category</label>
                                         <select class="form-control" name="Category" id="">
-                                            SELECT<option value="" disabled>--SELECT--</option>
-                                            <option value="Furniture">Furniture</option>
-                                            <option value="Electronics">Electronics</option>
-                                            <option value="Utensils">Utensils</option>
-                                            <option value="Gas Cylinders">Gas Cylinders</option>
+                                            SELECT
+                                            <option  value="">--SELECT--</option>
+                                            <?php
+                            
+                                            while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            
+                                            <option value="<?php echo $row['categoryName'] ?>"><?php echo $row['categoryName'] ?></option>
+                                            
+                                            <?php
+                                            
+                                            }
+                                            ?>
                                         </select>
                                     </div>
 

@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>CHECKOUT</title>
+    <link rel="icon" href="IMAGES/comp/favicon.ico" type="image/x-icon" />
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/search.css">
@@ -239,7 +240,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-lg-5" style="box-shadow:1px 1px 7px">
                                 <div class="card text-dark bg-light mt-2 mb-2">
@@ -274,7 +274,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                     <div class="col-lg-4 col-md-3 col-sm-3 col-3 py-auto" style="float:right;">
                                                         <?php
                                                         $Id = $_SESSION['Id'];
-
                                                         $sql = "SELECT * FROM `users` WHERE `users`.`Id` =  '$Id'";
                                                         $result = mysqli_query($conn, $sql);
                                                         while ($personal_details = mysqli_fetch_assoc($result)) {
@@ -284,7 +283,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                             $total = mysqli_query($conn, $sql);
                                                             foreach ($total as $total) {
                                                                 $Total = (float)$total['Amount']; ?>
-
                                                                 <!-- Modal -->
                                                                 <div class="modal fade" id="payment_modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">

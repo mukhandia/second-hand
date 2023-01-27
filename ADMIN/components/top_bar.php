@@ -1,4 +1,27 @@
 <!-- Topbar -->
+<style>
+        #result {
+            color: #f26522;
+            position: absolute;
+            z-index: 999;
+            top: 100%;
+            left: 0;
+        }
+
+        .result p {
+            margin: 0;
+            padding: 7px 10px;
+            border: 1px solid #cccccc;
+            border-top: 0;
+            background-color: #f2f2f2;
+            color: black;
+            width: 200px;
+        }
+
+        .result p:hover {
+            background-color: antiquewhite;
+        }
+    </style>
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
     <!-- Sidebar - Brand -->
 
@@ -15,6 +38,46 @@
     </a>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
+    <li class="nav-item my-auto">
+            <!-- Topbar Search -->
+            <form class="search-box d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="backend_search.php" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" id="psearch" name="name" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" style="background-color:green ;">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                    <!-- <div class="result mt-2"></div> -->
+                </div>
+            </form>
+           
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$("#psearch").keyup(function() {
+								var input = $(this).val();
+								//    alert(input);
+								if (input != "") {
+									$.ajax({
+										url: "backend_search.php",
+										method: "POST",
+										data: {
+											input: input
+										},
+										success: function(data) {
+											$("#result").html(data);
+										}
+									});
+								} else {
+									$("#result").css("display", "none");
+									// setInterval('location.reload()', 100);
+								}
+							});
+						});
+					</script>
+        </li>
+
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
@@ -60,4 +123,5 @@
     </ul>
 
 </nav>
+<div  id="result"></div>
 <!-- End of Topbar -->

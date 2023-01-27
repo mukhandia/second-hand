@@ -1,5 +1,5 @@
 <?php
-include("components/session.php");
+// include("components/session.php");
 include("server/connect.php");
 $Message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -28,7 +28,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>unverified transactions</title>
+    <title>unverified transactions
+        (
+        <?php
+        $date = date("l d/ m/Y");
+        //query to get data from the table
+        $sql = "SELECT payment_status FROM tblpayment WHERE payment_status='Paid, Not Verified' ";
+        $result = mysqli_query($conn, $sql);
+        if ($verify = mysqli_num_rows($result)) {
+            echo $verify;
+        } else {
+            echo "0" ;
+        }
+        ?>)
+        
+    </title>
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -152,22 +168,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         ?>
                                     </tbody>
                                     <?php
-                                        if (isset($_GET['Id'])) {
-                                            $del_transaction = $_GET['Id'];
-                                            $sql = "DELETE FROM tblpayment WHERE payment_id = $del_transaction;";
-                                            $result = mysqli_query($conn, $sql);
-                                            if (!$result) {
-                                                $message = '<div class="alert alert-alert" role="alert">
+                                    if (isset($_GET['Id'])) {
+                                        $del_transaction = $_GET['Id'];
+                                        $sql = "DELETE FROM tblpayment WHERE payment_id = $del_transaction;";
+                                        $result = mysqli_query($conn, $sql);
+                                        if (!$result) {
+                                            $message = '<div class="alert alert-alert" role="alert">
                                                 <strong><i class="fa fa-exclamation" style="color:green" aria-hidden="true"></i> Product Added Successfuly</strong>
                                                 </div>';
-                                            } else {
-                                                $message = '<div class="alert alert-success" role="alert">
+                                        } else {
+                                            $message = '<div class="alert alert-success" role="alert">
                                                 <strong><i class="fa fa-check" style="color:green" aria-hidden="true"></i> Product Deleted Successfuly</strong>
                                                 </div>';
-                                                // header('location:transactions.php');
-                                            }
+                                            // header('location:transactions.php');
                                         }
-                                        ?>
+                                    }
+                                    ?>
                                 </table>
                             </div>
                         </div>
@@ -182,9 +198,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span> <?php
-                        $cop=date("l:Y");
-                        echo $cop ." ";
-                         ?>Copyright &copy; shopi</span>
+                                $cop = date("l:Y");
+                                echo $cop . " ";
+                                ?>Copyright &copy; shopi</span>
                     </div>
                 </div>
             </footer>

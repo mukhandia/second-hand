@@ -1,6 +1,6 @@
 <?php
 
-include("components/session.php");
+// include("components/session.php");
 include("server/connect.php");
 $message = "";
 $name = "";
@@ -56,7 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>ADD ADMINISTRATOR</title>
+    <title>add admin</title>
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -112,6 +114,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <div class="col form-group mt-3 mb-3">
                                             <label for="" style="font-weight:700;"> Enter Email</label>
                                             <input type="email" name="Email" autocomplete="off" id="Email" class="form-control" value="<?php echo $email ?>" placeholder="" aria-describedby="helpId">
+                                        </div>
+                                    </div>
+                                    <div class="row ml-2">
+                                        <div class="col form-group mt-3 mb-3">
+                                            <label for="" style="font-weight:700;"> Enter Position</label>
+                                            <input type="email" name="text" autocomplete="off" id="Email" class="form-control" value="<?php echo $email ?>" placeholder="" aria-describedby="helpId">
                                         </div>
                                     </div>
                                     <div class="ml-3 form-group">

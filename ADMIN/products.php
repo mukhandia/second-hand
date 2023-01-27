@@ -1,5 +1,5 @@
 <?php
-include('components/session.php');
+// include('components/session.php');
 include("server/connect.php");
 
 $message = '';
@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>products</title>
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
+
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -85,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 <th>Category</th>
                                                 <th>Description</th>
                                                 <th>Price</th>
-                                                <th>Category</th>
+                                                
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -96,12 +98,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             while ($row = mysqli_fetch_assoc($result)) { ?>
                                                 <tr>
                                                     <th><?php echo $num ?></th>
-                                                    <th> <img src="IMAGES/products/<?php echo $row['File'] ?>" alt="" style="width:130px; height:130px;"></th>
+                                                    <th> <img src="IMAGES/products/<?php echo $row['File'] ?>" alt="" style="width:80px; height:80px;"></th>
                                                     <th><?php echo $row['Name'] ?></th>
                                                     <th><?php echo $row['Category'] ?></th>
-                                                    <th><?php echo $row['Description'] ?></th>
-                                                    <th><?php echo $row['Price'] ?></th>
-                                                    <th><?php echo $row['Category'] ?></th>
+                                                    <th style="width:200px; height:80px;"><?php echo $row['Description'] ?></th>
+                                                    <th style="width:80px; height:80px;"><?php echo $row['Price'] ?></th>
                                                     <th>
                                                         <div class="row">
                                                             <div class="col-lg-6">

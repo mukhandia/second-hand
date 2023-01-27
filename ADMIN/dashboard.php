@@ -1,7 +1,9 @@
 <?php
-include('components/session.php');
+// include('components/session.php');
 include("server/connect.php");
-
+if (empty($_SESSION['admin'])) {
+    header("Location:./login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +16,7 @@ include("server/connect.php");
     <meta name="author" content="">
     <title>shopi admin dashboard</title>
     <!-- Custom fonts for this template-->
+    <link rel="icon" href="../IMAGES/comp/favicon.ico" type="image/x-icon" />
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!-- Custom styles for this template-->
@@ -188,33 +191,32 @@ include("server/connect.php");
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
+                                    <a href="products.php" style="text-decoration: none ;">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Sales (Today)</div>
+                                                Total products</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                $date = date("l d/ m/Y");
-                                                //query to get data from the table
-                                                $sql = sprintf("SELECT sales  FROM Sales WHERE day = '$date'");
-
-                                                //execute query
-                                                $result = mysqli_query($conn, $sql);
-                                                if (mysqli_num_rows($result) > 0) {
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        $_SESSION['Sales_Today'] = $row['sales'];
-                                                        echo $_SESSION['Sales_Today'];
+                                            <?php
+                                                    $date = date("l d/ m/Y");
+                                                    //query to get data from the table
+                                                    $sql = sprintf("SELECT * FROM products ");
+                                                    //execute query
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($num = mysqli_num_rows($result)) {
+                                                        echo $num;
+                                                    } else {
+                                                        echo "0";
                                                     }
-                                                } else {
-                                                    echo "0";
-                                                }
-                                                ?>
+
+                                                    ?>
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <!-- <i class="fas fa-asterisk fa-2x text-gray-300"></i> -->
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +256,7 @@ include("server/connect.php");
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <a href="transactions.php" style="text-decoration: none ;">
+                                            <a href="verified.php" style="text-decoration: none ;">
                                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                     verified Transactions </div>
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -279,6 +281,38 @@ include("server/connect.php");
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <a href="categories.php" style="text-decoration: none ;">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    product categories </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    <?php
+                                                    $date = date("l d/ m/Y");
+                                                    //query to get data from the table
+                                                    $sql = "SELECT * FROM product_categories";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    if ($verify = mysqli_num_rows($result)) {
+                                                        echo $verify;
+                                                    } else {
+                                                        echo "0";
+                                                    }
+                                                    ?>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- <div class="col-auto">
+                                            <i class="fa fa-briefcase fa-2x text-gray-300" aria-hidden="true"></i>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
                     </div>
 
 
@@ -330,14 +364,13 @@ include("server/connect.php");
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
-                                            <button type="button" class="btn btn-success my-auto">Save</button>
+                                            <button type="submit" class="btn btn-success my-auto">Save</button>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- INCOME -->
                     <div class="row">
@@ -388,7 +421,7 @@ include("server/connect.php");
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
-                                            <button type="button" class="btn btn-success my-auto">Save</button>
+                                            <button type="submit" class="btn btn-success my-auto">Save</button>
                                         </div>
                                     </div>
 
