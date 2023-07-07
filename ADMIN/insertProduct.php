@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <input type="text" name="P_name" id="name" class="form-control" placeholder="" aria-describedby="helpId" autocomplete="off" required>
 
                                     </div>
-                                    <div class="col form-group" <div class="form-group">
+                                    <div class="col form-group">
                                     <?php
                                 $sql = "SELECT * FROM product_categories ORDER BY `product_categories`.`categoryId` DESC";
                                 $result = mysqli_query($conn, $sql); ?>
