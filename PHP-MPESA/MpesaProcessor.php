@@ -26,8 +26,8 @@ function lipaNaMpesaPassword()
 }
 function newAccessToken()
 {
-    $consumer_key = "TXTfdd0OszO2BWY9JBol3RL1rIyvGQN6";
-    $consumer_secret = "RukcGyDzrb5lEMNG";
+    $consumer_key = "r07nYgeEnBYMe5rTb4Inx3ZdaiFf2BWU";
+    $consumer_secret = "0FzAZKFqCjSgVRUd";
     $credentials = base64_encode($consumer_key . ":" . $consumer_secret);
     $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
     $curl = curl_init();
